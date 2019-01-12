@@ -1,0 +1,16 @@
+# -*- coding:utf-8 -*-
+# author : mt time:{2019/1/12}
+import requests
+
+class HTTP:
+    '''
+        自定义
+    '''
+    @staticmethod
+    def get(url,return_json = True):
+
+        r = requests.get(url)
+        if r.status_code !=200:
+            return {} if return_json else ''
+        return r.json() if return_json else r.text
+
